@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Play, Pause } from 'lucide-react';
 
 export default function Hero({ 
-  bride = "Wendy", 
-  groom = "Nicolas", 
+  bride = "Nicolas", 
+  groom = "Wendy", 
   date = "14 / OCT / 2026",
   isPlaying,
   togglePlay,

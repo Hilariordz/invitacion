@@ -28,14 +28,14 @@ export default function App() {
 
       {}
       <Hero 
-        bride="Wendy" 
-        groom="Nicolas" 
+        bride="Nicolas" 
+        groom="Wendy" 
         date="28 / NOV / 2026"
         isPlaying={isPlaying}
         togglePlay={togglePlay}
       />
       <Countdown targetDate="2026-11-28T00:00:00" />
-      <Rsvp phoneNumber="5218442898419" />
+      <Rsvp phoneNumber="5218445032212" />
     </div>
   );
 }

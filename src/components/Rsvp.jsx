@@ -21,12 +21,12 @@ export default function Rsvp({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const message = `¡Hola! Confirmo mi respuesta para la boda:%0A%0A` +
-      `*Nombre:* ${formData.name}%0A` +
-      `*Estado:* ${formData.attendance}%0A` +
+    const message = `¡Hola! Confirmo mi respuesta para la boda:\n\n` +
+      `*Nombre:* ${formData.name}\n` +
+      `*Estado:* ${formData.attendance}\n` +
       `*Número de personas:* ${formData.attendance === 'Asistiré' ? formData.guests : '0'}`;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
