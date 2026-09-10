@@ -1,16 +1,32 @@
-# React + Vite
+# Boda Minimalista - Invitación Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Invitación digital interactiva para la boda de Nicolas y Wendy, con una estética elegante y natural en tonos oliva. La experiencia está optimizada para teléfonos y reúne la información del evento, ubicaciones, cuenta regresiva y confirmación de asistencia en una sola página.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Portada con nombres, fecha y música ambiental opcional.
+- Calendario con la fecha de la boda y enlace para agregar el evento a Google Calendar.
+- Frase de bienvenida y sección de cuenta regresiva en tiempo real.
+- Formulario RSVP con nombre, asistencia y número de personas.
+- Envío de la confirmación directamente a WhatsApp.
+- Animaciones suaves al entrar en pantalla.
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS 4
+- Framer Motion
+- Lucide React
+- pnpm
 
-## Expanding the ESLint configuration
+## Personalización
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+La información principal de la invitación se encuentra en `src/App.jsx`:
+
+- Nombres y fecha de la portada.
+- Fecha de la cuenta regresiva.
+- Número de WhatsApp para confirmar asistencia.
+- Archivo de música usado por el reproductor.
+
+Las ubicaciones se editan en `src/components/Locations.jsx`. La música debe colocarse en `public/music.mp3` para que el reproductor pueda cargarla.
