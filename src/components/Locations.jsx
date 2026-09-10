@@ -4,18 +4,23 @@ import { MapPin } from 'lucide-react';
 const locationsData = [
   {
     type: "Boda Civil",
-    place: "",
-    time: "18:00",
-    address: "",
-    image: "https://images.unsplash.com/photo-1548625361-195fe5795df5?auto=format&fit=crop&w=800&q=80",
-    mapUrl: "https://maps.google.com/?q=Parroquia+de+la+Sagrada+Familia+Nuevo+Laredo"
+    place: "Palapa Los Generales",
+    time: "3:00 PM",
+    address: "Ramos Arizpe,Coahuila",
+    mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
+  },
+  {
+    type: "Discurso Publico",
+    place: "Luís Gutiérrez 305, Blanca Esthela, #25904 Ramos Arizpe, Coah",
+    time: "3:00 PM",
+    address: "Ramos Arizpe,Coahuila",
+    mapUrl: "https://maps.app.goo.gl/xigierXbHDPv57x69"
   },
   {
     type: "Recepción",
     place: "Palapa Los Generales",
-    time: "20:00",
+    time: "8:00 PM",
     address: "Ramos Arizpe,Coahuila",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80",
     mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   }
 ];
@@ -38,7 +43,7 @@ export default function Locations() {
           <div className="w-12 h-px bg-neutral-300 mx-auto mt-4" />
         </motion.div>
 
-        <div className="w-full flex flex-col gap-24 items-center">
+        <div className="w-full flex flex-col gap-8 items-center">
           {locationsData.map((loc, index) => (
             <motion.div
               key={index}
@@ -48,15 +53,7 @@ export default function Locations() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="relative w-full max-w-[360px] sm:max-w-[420px] flex flex-col items-center"
             >
-              <div className="w-full h-56 sm:h-64 rounded-2xl overflow-hidden shadow-sm">
-                <img
-                  src={loc.image}
-                  alt={loc.place}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="w-[90%] -mt-16 bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-neutral-100/80 text-center relative z-10 flex flex-col items-center">
+              <div className="w-full bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-neutral-100/80 text-center relative z-10 flex flex-col items-center">
                 <div className="flex items-center justify-center gap-3 w-full mb-3">
                   <span className="w-8 h-px bg-neutral-300/80" />
                   <span className="text-xs tracking-[0.2em] text-[#828f73] font-serif font-bold uppercase">
