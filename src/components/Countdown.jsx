@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Countdown({
   targetDate = "2026-11-28T00:00:00",
-  bgImage = "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
+  bgImage = "/imgcont.jpg"
 }) {
   const [timeLeft, setTimeLeft] = useState({
     dias: 0,
@@ -48,20 +48,20 @@ export default function Countdown({
       />
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-2 sm:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex justify-between items-center text-center"
+          className="grid grid-cols-4 items-center text-center"
         >
           {items.map((item, index) => (
-            <div key={index} className="flex-1 flex flex-col items-center justify-center">
-              <span className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">
+            <div key={index} className="min-w-0 flex flex-col items-center justify-center">
+              <span className="font-serif text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-none">
                 {String(item.value).padStart(2, "0")}
               </span>
-              <span className="text-[9px] sm:text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-white/95 mt-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+              <span className="text-[8px] xs:text-[9px] sm:text-[11px] md:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.2em] text-white/95 mt-2 whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 {item.label}
               </span>
             </div>
