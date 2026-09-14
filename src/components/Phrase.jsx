@@ -1,8 +1,8 @@
     import { motion } from 'framer-motion';
 
 export default function Phrase({
-  title = "¡La tradición se renueva!",
-  quote = "Nuestro amor madura como las aceitunas doradas",
+  title = "Porque adonde tú vayas yo iré, y donde tú pases la noche yo pasaré la noche. Tu pueblo será mi pueblo, y tu Dios será mi Dios.",
+  quote = 'Rut 1:16',
   leafImage = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=300&q=80"
 }) {
   return (
