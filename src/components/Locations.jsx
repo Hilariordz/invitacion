@@ -11,10 +11,10 @@ const locationsData = [
   },
   {
     type: "Discurso Publico",
-    place: "Luís Gutiérrez 305, Blanca Esthela, #25904 Ramos Arizpe, Coah",
-    time: "3:00 PM",
+    place: "Palapa Los Generales",
+    time: "4:30 PM",
     address: "Ramos Arizpe,Coahuila",
-    mapUrl: "https://maps.app.goo.gl/xigierXbHDPv57x69"
+    mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   },
   {
     type: "Recepción",
