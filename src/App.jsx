@@ -5,6 +5,7 @@ import Phrase from './components/Phrase';
 import Countdown from './components/Countdown';
 import Locations from './components/Locations';
 import Rsvp from './components/Rsvp';
+import Footer from './components/Footer';
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -42,6 +43,7 @@ export default function App() {
       <Countdown targetDate="2026-11-28T00:00:00" />
       <Locations />
       <Rsvp phoneNumber="5218445032212" />
+      <Footer />
     </div>
   );
 }

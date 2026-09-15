@@ -3,7 +3,7 @@
 export default function Phrase({
   title = "Porque adonde tú vayas yo iré, y donde tú pases la noche yo pasaré la noche. Tu pueblo será mi pueblo, y tu Dios será mi Dios.",
   quote = 'Rut 1:16',
-  leafImage = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=300&q=80"
+  leafImage = "../public/recinv.png", 
 }) {
   return (
     <section className="w-full bg-[#f4f2e8] py-24 sm:py-32 px-6 flex flex-col items-center justify-center text-center">
@@ -14,7 +14,7 @@ export default function Phrase({
         transition={{ duration: 0.8 }}
         className="max-w-md mx-auto flex flex-col items-center"
       >
-        <div className="w-16 h-12 mb-8 flex items-center justify-center">
+        <div className="w-32 h-28 mb-8 flex items-center justify-center">
           <img
             src={leafImage}
             alt="Detalle botánico"
