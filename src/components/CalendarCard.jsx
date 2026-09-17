@@ -6,8 +6,9 @@ export default function CalendarCard({
   day = 28,
   year = 2026,
   title = "Boda Wendy & Nicolas",
-  location = "Hacienda San José",
-  details = "¡Te esperamos para celebrar nuestra boda!"
+  location = "Palapa Los Generales",
+  details = "¡Te esperamos para celebrar nuestra boda!",
+  mapUrl = "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
 }) {
   const weekDays = ["LU", "MA", "MI", "JU", "VI", "SA", "DO"];
   const monthNames = [
@@ -46,7 +47,7 @@ export default function CalendarCard({
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     title
   )}&dates=${startDate}/${endDate}&details=${encodeURIComponent(
-    details
+    `${details}\n\nVer ubicación: ${mapUrl}`
   )}&location=${encodeURIComponent(location)}`;
 
   return (
