@@ -9,15 +9,31 @@ export default function CalendarCard({
   location = "Hacienda San José",
   details = "¡Te esperamos para celebrar nuestra boda!"
 }) {
-  const weekDays = [
-    { name: "LU", num: 23 },
-    { name: "MA", num: 24 },
-    { name: "MI", num: 25 },
-    { name: "JU", num: 26 },
-    { name: "VI", num: 27 },
-    { name: "SA", num: 28 },
-    { name: "DO", num: 29 },
+  const weekDays = ["LU", "MA", "MI", "JU", "VI", "SA", "DO"];
+  const monthNames = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
   ];
+  const monthIndex = monthNames.indexOf(month.toLowerCase());
+  const firstDay = new Date(year, monthIndex, 1).getDay();
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const calendarDays = Array.from(
+    { length: (firstDay === 0 ? 6 : firstDay - 1) + daysInMonth },
+    (_, index) => {
+      const firstDayOffset = firstDay === 0 ? 6 : firstDay - 1;
+      return index < firstDayOffset ? null : index - firstDayOffset + 1;
+    }
+  );
 
   const startDate = "20261128T170000Z";
   const endDate = "20261129T020000Z";
@@ -42,34 +58,34 @@ export default function CalendarCard({
           </h3>
 
           <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-3">
-            {weekDays.map((d, index) => (
+            {weekDays.map((dayName) => (
               <span
-                key={index}
+                key={dayName}
                 className="text-[10px] sm:text-xs font-semibold text-neutral-500 uppercase"
               >
-                {d.name}
+                {dayName}
               </span>
             ))}
           </div>
 
           <div className="grid grid-cols-7 gap-1 sm:gap-2 items-center">
-            {weekDays.map((d, index) => {
-              const isSelected = d.num === day;
+            {calendarDays.map((calendarDay, index) => {
+              const isSelected = calendarDay === day;
 
               return (
                 <div
                   key={index}
                   className="flex items-center justify-center h-8 sm:h-9"
                 >
-                  {isSelected ? (
+                  {calendarDay && isSelected ? (
                     <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#828f73] text-white font-medium text-xs sm:text-sm flex items-center justify-center shadow-xs">
-                      {d.num}
+                      {calendarDay}
                     </span>
-                  ) : (
+                  ) : calendarDay ? (
                     <span className="text-xs sm:text-sm text-neutral-700 font-medium">
-                      {d.num}
+                      {calendarDay}
                     </span>
-                  )}
+                  ) : null}
                 </div>
               );
             })}
