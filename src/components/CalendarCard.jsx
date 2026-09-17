@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function CalendarCard({
   month = "Noviembre",
@@ -43,27 +43,11 @@ export default function CalendarCard({
   )}${pad(nextDay.getDate())}`;
   const startDate = `${eventDate}T170000`;
   const endDate = `${nextDayDate}T020000`;
-  const downloadIcsFile = () => {
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "BEGIN:VEVENT",
-      `DTSTART:${startDate}`,
-      `DTEND:${endDate}`,
-      `SUMMARY:${title}`,
-      `DESCRIPTION:${details}`,
-      `LOCATION:${location}`,
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-    const file = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const link = document.createElement("a");
-
-    link.href = URL.createObjectURL(file);
-    link.download = "boda-wendy-nicolas.ics";
-    link.click();
-    URL.revokeObjectURL(link.href);
-  };
+  const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+    title
+  )}&dates=${startDate}/${endDate}&details=${encodeURIComponent(
+    details
+  )}&location=${encodeURIComponent(location)}`;
 
   return (
     <section className="w-full bg-[#f4f2e8] py-16 px-6 flex flex-col items-center justify-center">
@@ -114,14 +98,15 @@ export default function CalendarCard({
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={downloadIcsFile}
+        <a
+          href={googleCalendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full bg-[#828f73] hover:bg-[#727f63] active:scale-95 text-white text-xs sm:text-sm font-medium tracking-wide shadow-xs transition-all cursor-pointer"
         >
-          <span>Guardar en el calendario</span>
-          <Download size={15} />
-        </button>
+          <span>Agregar al calendario</span>
+          <ArrowUpRight size={15} />
+        </a>
       </motion.div>
     </section>
   );
