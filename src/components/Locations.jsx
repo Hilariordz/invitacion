@@ -19,7 +19,7 @@ const locationsData = [
   {
     type: "Recepción",
     place: "Palapa Los Generales",
-    time: "8:00 PM",
+    time: "6:00 PM",
     address: "Ramos Arizpe,Coahuila",
     mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   }
