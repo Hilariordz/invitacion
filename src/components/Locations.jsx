@@ -5,21 +5,21 @@ const locationsData = [
   {
     type: "Boda Civil",
     place: "Palapa Los Generales",
-    time: "3:00 PM",
+    time: "15:00 PM",
     address: "Ramos Arizpe,Coahuila",
     mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   },
   {
     type: "Discurso Publico",
     place: "Palapa Los Generales",
-    time: "4:30 PM",
+    time: "16:30 PM",
     address: "Ramos Arizpe,Coahuila",
     mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   },
   {
     type: "Recepción",
     place: "Palapa Los Generales",
-    time: "6:00 PM",
+    time: "18:00 PM",
     address: "Ramos Arizpe,Coahuila",
     mapUrl: "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
   }
