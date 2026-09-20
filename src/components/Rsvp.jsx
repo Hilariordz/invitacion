@@ -53,9 +53,6 @@ export default function Rsvp({
 
         <div className="w-16 h-px bg-[#2c3321]/30 mx-auto mb-4" />
 
-        <p className="italic text-sm sm:text-base text-[#2c3321]/90 mb-2 font-serif">
-          Con la elegancia de la tradición, esperamos tu presencia
-        </p>
 
         <p className="italic text-xs sm:text-sm text-[#2c3321]/80 mb-8">
           Confirma antes del {deadline} para asegurar tu lugar en nuestra celebración
