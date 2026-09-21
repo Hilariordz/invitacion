@@ -11,6 +11,7 @@ export default function Rsvp({
     attendance: 'Asistiré',
     guests: '1'
   });
+  const [messageOpened, setMessageOpened] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -33,6 +34,8 @@ export default function Rsvp({
       const whatsappUrl = `https://wa.me/${recipient}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     });
+
+    setMessageOpened(true);
   };
 
   return (
@@ -121,6 +124,13 @@ export default function Rsvp({
             </button>
           </div>
         </form>
+
+        {messageOpened && (
+          <p className="mt-6 rounded-xl bg-[#f0f2eb]/70 px-4 py-3 text-xs leading-relaxed text-[#2c3321]">
+            Tu mensaje está listo en WhatsApp. Presiona “Enviar” para confirmar;
+            tus datos llegarán únicamente a los organizadores.
+          </p>
+        )}
       </motion.div>
     </section>
   );
