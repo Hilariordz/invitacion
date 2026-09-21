@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Rsvp({ 
-  phoneNumber = "5211234567890", 
+  phoneNumber = "5211234567890",
+  phoneNumbers,
   deadline = "15 de octubre de 2026" 
 }) {
   const [formData, setFormData] = useState({
@@ -26,8 +27,12 @@ export default function Rsvp({
       `*Estado:* ${formData.attendance}\n` +
       `*Número de personas:* ${formData.attendance === 'Asistiré' ? formData.guests : '0'}`;
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const recipients = phoneNumbers?.length ? phoneNumbers : [phoneNumber];
+
+    recipients.forEach((recipient) => {
+      const whatsappUrl = `https://wa.me/${recipient}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    });
   };
 
   return (

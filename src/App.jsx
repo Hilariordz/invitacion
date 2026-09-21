@@ -42,7 +42,7 @@ export default function App() {
       <Phrase />
       <Countdown targetDate="2026-11-28T00:00:00" />
       <Locations />
-      <Rsvp phoneNumber="5218445032212" />
+      <Rsvp phoneNumbers={["5218445032212", "525562336719"]} />
       <Footer />
     </div>
   );
