@@ -10,7 +10,7 @@ export default function CalendarCard({
   details = "¡Te esperamos para celebrar nuestra boda!",
   mapUrl = "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
 }) {
-  const weekDays = ["LU", "MA", "MI", "JU", "VI", "SA", "DO"];
+  const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
   const monthNames = [
     "enero",
     "febrero",
