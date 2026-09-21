@@ -10,7 +10,8 @@ export default function CalendarCard({
   details = "¡Te esperamos para celebrar nuestra boda!",
   mapUrl = "https://maps.app.goo.gl/REeBkLC7BxDnR4Ao6"
 }) {
-  const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
+  // Se reactiva cuando sea necesario mostrar los días de la semana.
+  // const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
   const monthNames = [
     "enero",
     "febrero",
@@ -64,16 +65,7 @@ export default function CalendarCard({
             {month}
           </h3>
 
-          <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-3">
-            {weekDays.map((dayName) => (
-              <span
-                key={dayName}
-                className="text-[10px] sm:text-xs font-semibold text-neutral-500 uppercase"
-              >
-                {dayName}
-              </span>
-            ))}
-          </div>
+          {/* Encabezados de los días ocultos temporalmente por compatibilidad. */}
 
           <div className="grid grid-cols-7 gap-1 sm:gap-2 items-center">
             {calendarDays.map((calendarDay, index) => {
