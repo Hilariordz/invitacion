@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { supabase } from '../lib/supabase';
 
 export default function Rsvp({ 
   phoneNumber = "5211234567890",
@@ -12,6 +13,8 @@ export default function Rsvp({
     guests: '1'
   });
   const [messageOpened, setMessageOpened] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -20,13 +23,34 @@ export default function Rsvp({
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSaving(true);
+    setErrorMessage('');
+
+    const guests = formData.attendance === 'Asistiré'
+      ? Number(formData.guests)
+      : 0;
+
+    const { error } = await supabase
+      .from('rsvps')
+      .insert({
+        name: formData.name.trim(),
+        attendance: formData.attendance,
+        guests
+      });
+
+    if (error) {
+      console.error('No se pudo guardar la confirmación:', error);
+      setErrorMessage('No pudimos guardar tu confirmación. Intenta nuevamente.');
+      setIsSaving(false);
+      return;
+    }
 
     const message = `¡Hola! Confirmo mi respuesta para la boda:\n\n` +
       `*Nombre:* ${formData.name}\n` +
       `*Estado:* ${formData.attendance}\n` +
-      `*Número de personas:* ${formData.attendance === 'Asistiré' ? formData.guests : '0'}`;
+      `*Número de personas:* ${guests}`;
 
     const recipients = phoneNumbers?.length ? phoneNumbers : [phoneNumber];
 
@@ -36,6 +60,7 @@ export default function Rsvp({
     });
 
     setMessageOpened(true);
+    setIsSaving(false);
   };
 
   return (
@@ -118,12 +143,19 @@ export default function Rsvp({
           <div className="pt-4 flex justify-center">
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#c5c8bd] hover:bg-[#b5b9ac] active:scale-95 text-[#2c3321] font-medium text-sm tracking-wide transition-all shadow-sm cursor-pointer"
+              disabled={isSaving}
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#c5c8bd] hover:bg-[#b5b9ac] active:scale-95 text-[#2c3321] font-medium text-sm tracking-wide transition-all shadow-sm cursor-pointer disabled:cursor-wait disabled:opacity-60"
             >
-              Confirmar asistencia
+              {isSaving ? 'Guardando...' : 'Confirmar asistencia'}
             </button>
           </div>
         </form>
+
+        {errorMessage && (
+          <p role="alert" className="mt-6 rounded-xl bg-red-100/70 px-4 py-3 text-xs leading-relaxed text-red-900">
+            {errorMessage}
+          </p>
+        )}
 
         {messageOpened && (
           <p className="mt-6 rounded-xl bg-[#f0f2eb]/70 px-4 py-3 text-xs leading-relaxed text-[#2c3321]">
