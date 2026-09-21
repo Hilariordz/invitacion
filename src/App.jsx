@@ -4,6 +4,7 @@ import CalendarCard from './components/CalendarCard';
 import Phrase from './components/Phrase';
 import Countdown from './components/Countdown';
 import Locations from './components/Locations';
+import DressCode from './components/DressCode';
 import Rsvp from './components/Rsvp';
 import Footer from './components/Footer';
 
@@ -42,6 +43,7 @@ export default function App() {
       <Phrase />
       <Countdown targetDate="2026-11-28T00:00:00" />
       <Locations />
+      <DressCode />
       <Rsvp phoneNumbers={["5218445032212", "525562336719"]} />
       <Footer />
     </div>
